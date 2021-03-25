@@ -1,14 +1,15 @@
 {
-  "name": "bedrock-module-template-http",
+  "name": "bedrock-app-key",
   "version": "0.0.1-0",
   "description": "Bedrock HTTP API",
   "main": "./lib",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "generate-seed": "node ./util/generate-seed"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/digitalbazaar/bedrock-module-template-http"
+    "url": "https://github.com/digitalbazaar/bedrock-app-key"
   },
   "keywords": [
     "bedrock"
@@ -19,20 +20,22 @@
     "url": "https://digitalbazaar.com"
   },
   "bugs": {
-    "url": "https://github.com/digitalbazaar/bedrock-module-template-http/issues"
+    "url": "https://github.com/digitalbazaar/bedrock-app-key/issues"
   },
-  "homepage": "https://github.com/digitalbazaar/bedrock-module-template-http",
+  "homepage": "https://github.com/digitalbazaar/bedrock-app-key",
   "dependencies": {
+    "@digitalbazaar/did-method-key": "github:digitalbazaar/did-method-key-js#v1.x",
+    "base58-universal": "^1.0.0",
     "esm": "^3.2.25"
   },
   "peerDependencies": {
-    "bedrock": "^4.1.1",
-    "bedrock-express": "^3.2.0"
+    "bedrock": "^4.1.1"
   },
   "directories": {
     "lib": "./lib"
   },
   "devDependencies": {
+    "bnid": "^2.0.0",
     "eslint": "^7.14.0",
     "eslint-config-digitalbazaar": "^2.6.1"
   },

@@ -6,12 +6,6 @@
 const {config} = require('bedrock');
 const path = require('path');
 
-// MongoDB
-config.mongodb.name = 'bedrock_module_template_http_test';
-config.mongodb.dropCollections.onInit = true;
-config.mongodb.dropCollections.collections = [];
-
 config.mocha.tests.push(path.join(__dirname, 'mocha'));
 
-// allow self-signed certs in test framework
-config['https-agent'].rejectUnauthorized = false;
+config['app-key'].seedBase58 = '65w4P2NYHPYFefB2Wq8gtdUbvbHQYrDLMkDgMmsbqkKX';
