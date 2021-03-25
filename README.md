@@ -1,1 +1,1 @@
-# bedrock-module-template-http
+# bedrock-app-key

@@ -1,5 +1,5 @@
 {
-  "name": "bedrock-module-template-http-test",
+  "name": "bedrock-app-key-test",
   "version": "0.0.1-0",
   "private": true,
   "scripts": {
@@ -10,11 +10,7 @@
   },
   "dependencies": {
     "bedrock": "^4.1.1",
-    "bedrock-express": "^3.2.0",
-    "bedrock-https-agent": "^2.0.0",
-    "bedrock-module-template-http": "file:..",
-    "bedrock-mongodb": "^8.2.0",
-    "bedrock-server": "^2.7.0",
+    "bedrock-app-key": "file:..",
     "bedrock-test": "^5.3.2",
     "cross-env": "^7.0.3",
     "nyc": "^15.1.0"
@@ -22,10 +18,10 @@
   "nyc": {
     "excludeNodeModules": false,
     "include": [
-      "node_modules/bedrock-module-template-http/**"
+      "node_modules/bedrock-app-key/**"
     ],
     "exclude": [
-      "node_modules/bedrock-module-template-http/node_modules/**"
+      "node_modules/bedrock-app-key/node_modules/**"
     ]
   }
 }
