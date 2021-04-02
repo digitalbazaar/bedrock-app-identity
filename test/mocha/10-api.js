@@ -14,6 +14,6 @@ describe('bedrock-app-key API', () => {
     appKeys.capabilityInvocationKey.signer.should.be.a('function');
     appKeys.capabilityInvocationKey.type.should.equal(
       'Ed25519VerificationKey2020');
-    appKeys.keyAgreementKey.type.should.equal('X25519KeyAgreementKey2019');
+    appKeys.keyAgreementKey.type.should.equal('X25519KeyAgreementKey2020');
   });
 });
