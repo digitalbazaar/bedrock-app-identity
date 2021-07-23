@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/digitalbazaar/bedrock-app-key",
   "dependencies": {
-    "@digitalbazaar/did-method-key": "github:digitalbazaar/did-method-key-js#v1.x",
+    "@digitalbazaar/did-method-key": "^2.0.0",
     "base58-universal": "^1.0.0",
     "esm": "^3.2.25"
   },
