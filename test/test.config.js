@@ -8,4 +8,9 @@ const path = require('path');
 
 config.mocha.tests.push(path.join(__dirname, 'mocha'));
 
-config['app-key'].seedBase58 = '65w4P2NYHPYFefB2Wq8gtdUbvbHQYrDLMkDgMmsbqkKX';
+config['app-key'].seeds = {
+  app: {
+    id: 'did:key:z6MkwQfUzcoF4zpUPGo629xyZiQZahsZjRz5qaqMaD5GjwnQ',
+    seedBase58: 'AKXkfGfos4k2KEx5iXunVJfXmM9kzT1H6eDaVdBRHCTt'
+  }
+};
