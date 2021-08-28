@@ -1,19 +1,21 @@
 /*
  * Copyright (c) 2020-2021 Digital Bazaar, Inc. All rights reserved.
  */
-const {keys: appKeys} = require('bedrock-app-key');
+const {default: brAppKey} = require('bedrock-app-key');
 
 describe('bedrock-app-key API', () => {
   it('has the proper exports', async () => {
-    appKeys.should.have.keys([
-      'capabilityDelegationKey', 'capabilityInvocationKey', 'keyAgreementKey'
+    const keys = brAppKey.get('app');
+    keys.should.have.keys([
+      'authenticationKey', 'assertionMethodKey', 'capabilityDelegationKey',
+      'capabilityInvocationKey', 'keyAgreementKey'
     ]);
-    appKeys.capabilityDelegationKey.signer.should.be.a('function');
-    appKeys.capabilityDelegationKey.type.should.equal(
+    keys.capabilityDelegationKey.signer.should.be.a('function');
+    keys.capabilityDelegationKey.type.should.equal(
       'Ed25519VerificationKey2020');
-    appKeys.capabilityInvocationKey.signer.should.be.a('function');
-    appKeys.capabilityInvocationKey.type.should.equal(
+    keys.capabilityInvocationKey.signer.should.be.a('function');
+    keys.capabilityInvocationKey.type.should.equal(
       'Ed25519VerificationKey2020');
-    appKeys.keyAgreementKey.type.should.equal('X25519KeyAgreementKey2020');
+    keys.keyAgreementKey.type.should.equal('X25519KeyAgreementKey2020');
   });
 });
