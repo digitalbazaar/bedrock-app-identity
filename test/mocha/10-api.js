@@ -1,11 +1,11 @@
 /*
  * Copyright (c) 2020-2021 Digital Bazaar, Inc. All rights reserved.
  */
-const {default: brAppKey} = require('bedrock-app-key');
+const {APPLICATION_KEYS} = require('bedrock-app-key');
 
 describe('bedrock-app-key API', () => {
   it('has the proper exports', async () => {
-    const keys = brAppKey.get('app');
+    const keys = APPLICATION_KEYS.get('app');
     keys.should.have.keys([
       'authenticationKey', 'assertionMethodKey', 'capabilityDelegationKey',
       'capabilityInvocationKey', 'keyAgreementKey'
