@@ -8,7 +8,7 @@ const path = require('path');
 
 config.mocha.tests.push(path.join(__dirname, 'mocha'));
 
-config['app-key'].seeds = {
+config['app-identity'].seeds = {
   app: {
     id: 'did:key:z6MkwQfUzcoF4zpUPGo629xyZiQZahsZjRz5qaqMaD5GjwnQ',
     seedBase58: 'AKXkfGfos4k2KEx5iXunVJfXmM9kzT1H6eDaVdBRHCTt'

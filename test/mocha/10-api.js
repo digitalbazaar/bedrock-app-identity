@@ -1,9 +1,9 @@
 /*
  * Copyright (c) 2020-2021 Digital Bazaar, Inc. All rights reserved.
  */
-const {getAppIdentity, getServiceIdentities} = require('bedrock-app-key');
+const {getAppIdentity, getServiceIdentities} = require('bedrock-app-identity');
 
-describe('bedrock-app-key API', () => {
+describe('bedrock-app-identity API', () => {
   it('getAppIdentity() has the proper exports', async () => {
     const {keys} = getAppIdentity();
     keys.should.have.keys([
