@@ -1,4 +1,4 @@
-# bedrock-app-key ChangeLog
+# bedrock-app-identity ChangeLog
 
 ## 1.0.0 - TBD
 
