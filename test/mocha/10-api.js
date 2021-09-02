@@ -5,7 +5,7 @@ const {APPLICATION_KEYS} = require('bedrock-app-key');
 
 describe('bedrock-app-key API', () => {
   it('has the proper exports', async () => {
-    const keys = APPLICATION_KEYS.get('app');
+    const {keys} = APPLICATION_KEYS.get('app');
     keys.should.have.keys([
       'authenticationKey', 'assertionMethodKey', 'capabilityDelegationKey',
       'capabilityInvocationKey', 'keyAgreementKey'
