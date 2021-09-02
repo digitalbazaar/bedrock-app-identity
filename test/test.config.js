@@ -12,5 +12,12 @@ config['app-key'].seeds = {
   app: {
     id: 'did:key:z6MkwQfUzcoF4zpUPGo629xyZiQZahsZjRz5qaqMaD5GjwnQ',
     seedBase58: 'AKXkfGfos4k2KEx5iXunVJfXmM9kzT1H6eDaVdBRHCTt'
+  },
+  services: {
+    test: {
+      id: 'did:key:z6MkwQfUzcoF4zpUPGo629xyZiQZahsZjRz5qaqMaD5GjwnQ',
+      seedBase58: 'AKXkfGfos4k2KEx5iXunVJfXmM9kzT1H6eDaVdBRHCTt',
+      serviceType: 'test'
+    }
   }
 };
