@@ -1,6 +1,6 @@
-# bedrock-app-key
+# bedrock-app-identity
 
-### Generate an app key
+### Generate an app seed
 ```
 npm run generate-seed
 ```

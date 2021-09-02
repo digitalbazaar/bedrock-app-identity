@@ -4,7 +4,7 @@
 'use strict';
 
 const bedrock = require('bedrock');
-require('bedrock-app-key');
+require('bedrock-app-identity');
 
 require('bedrock-test');
 bedrock.start();
