@@ -3,9 +3,9 @@
  */
 'use strict';
 
-const {encode, decode} = require('base58-universal');
+const {encode} = require('base58-universal');
 const {driver} = require('@digitalbazaar/did-method-key');
-const {generateId} = require('bnid');
+const {IdGenerator} = require('bnid');
 
 // multibase base58-btc header
 const MULTIBASE_BASE58BTC_HEADER = 'z';
@@ -17,13 +17,14 @@ const SEED_BITS_SIZE = SEED_BYTE_SIZE * 8;
 
 const didKeyDriver = driver();
 
+// 256 bit (32 byte) random id generator
+const generator = new IdGenerator({
+  bitLength: SEED_BITS_SIZE
+});
+
 (async () => {
-  // generate a random base58 encoded 256 Bit (32 Byte) seed
-  const seedBase58 = await generateId({
-    bitLength: SEED_BITS_SIZE, multibase: false
-  });
-  // convert base58 to Uint8Array
-  const seedBytes = decode(seedBase58);
+  // generate a random seed
+  const seedBytes = await generator.generate();
   if(seedBytes.length !== SEED_BYTE_SIZE) {
     throw new Error('Generated seed does not match expected byte size.', {
       generatedSize: seedBytes.byteLength,
