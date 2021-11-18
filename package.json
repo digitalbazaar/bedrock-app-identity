@@ -25,7 +25,7 @@
   "homepage": "https://github.com/digitalbazaar/bedrock-app-identity",
   "dependencies": {
     "@digitalbazaar/did-method-key": "^2.0.0",
-    "bnid": "digitalbazaar/bnid#add-generate-and-decode-multibase-seed",
+    "bnid": "^2.1.0",
     "esm": "^3.2.25"
   },
   "peerDependencies": {
