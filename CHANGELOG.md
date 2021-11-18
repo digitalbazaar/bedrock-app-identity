@@ -1,6 +1,6 @@
 # bedrock-app-identity ChangeLog
 
-## 1.1.0 - 2021-TBD
+## 1.1.0 - 2021-11-18
 
 - Use `generateSecretKeySeed()` and `decodeSecretKeySeed()` from bnid for
   creating and decoding secret key pair seeds.
