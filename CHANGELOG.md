@@ -1,5 +1,9 @@
 # bedrock-app-identity ChangeLog
 
+## 1.2.0 - 2021-TBD
+
+- Add additional tests.
+
 ## 1.1.0 - 2021-11-18
 
 - Use `generateSecretKeySeed()` and `decodeSecretKeySeed()` from bnid for
