@@ -89,7 +89,7 @@ describe('bedrock-app-identity API', () => {
       err.message.should.equal(
         'Service identity (test) was previously configured.');
     });
-  it('exits if service identity seeds not found',
+  it('exits if service identity seeds is not found',
     async () => {
       bedrock.config['app-identity'].seeds = {};
       let err;
