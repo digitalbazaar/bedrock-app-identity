@@ -3,7 +3,11 @@
  */
 const {getAppIdentity, getServiceIdentities} = require('bedrock-app-identity');
 const bedrock = require('bedrock');
-const {_resetApplicationIdentity} = require('bedrock-app-identity');
+const {
+  _resetApplicationIdentity,
+  _generateApplicationIdentity,
+  _generateServiceIdentity
+} = require('bedrock-app-identity');
 
 describe('bedrock-app-identity API', () => {
   it('getAppIdentity() has the proper exports', async () => {
@@ -38,13 +42,11 @@ describe('bedrock-app-identity API', () => {
   });
   it('throws error when attempting to configure app identity again',
     async () => {
+      const {seeds} = bedrock.config['app-identity'];
       let err;
       let res;
       try {
-        // this will trigger the bedrock.init event which will call
-        // `_generateApplicationIdentity` and try to configure app identity
-        // again
-        res = await bedrock.events.emit('bedrock.init');
+        res = await _generateApplicationIdentity({seedDescription: seeds.app});
       } catch(e) {
         err = e;
       }
@@ -54,32 +56,13 @@ describe('bedrock-app-identity API', () => {
       err.message.should.equal(
         'Application identity was previously configured.');
     });
-  it('throws error when identity seed(s) is not set', async () => {
-    bedrock.config['app-identity'].seeds = undefined;
-    let err;
-    let res;
-    try {
-      res = await bedrock.events.emit('bedrock.init');
-    } catch(e) {
-      err = e;
-    }
-    should.exist(err);
-    should.not.exist(res);
-    err.name.should.equal('InvalidStateError');
-    err.message.should.equal('Identity seed(s) not set.');
-  });
   it('throws error if service identity name was previously configured',
     async () => {
-      bedrock.config['app-identity'].seeds = {
-        services: {
-          // set service name to `test` which has already been configured
-          test: {}
-        }
-      };
       let err;
       let res;
       try {
-        res = await bedrock.events.emit('bedrock.init');
+        // set service name to `test` which has already been configured
+        res = await _generateServiceIdentity({name: 'test'});
       } catch(e) {
         err = e;
       }
@@ -89,33 +72,20 @@ describe('bedrock-app-identity API', () => {
       err.message.should.equal(
         'Service identity (test) was previously configured.');
     });
-  it('exits if service identity seeds is not found',
-    async () => {
-      bedrock.config['app-identity'].seeds = {};
-      let err;
-      let res;
-      try {
-        res = await bedrock.events.emit('bedrock.init');
-      } catch(e) {
-        err = e;
-      }
-      should.not.exist(err);
-      should.not.exist(res);
-    });
   it('throws error if the generated application ID does not match the ID found',
     async () => {
-      bedrock.config['app-identity'].seeds = {
-        app: {
-          id: 'did:key:z6MkmXjRf7pMCH8ct1ekbdqFMEcak1zDJTR31gXDokDhA69h',
-          seedMultibase: 'z1AdmTr7Z4fr6nBMH634Uti7tgQmHaCvMmKwJ9bo9yBhz1q'
-        },
-        services: {}
-      };
       _resetApplicationIdentity();
+
+      const seedDescription = {
+        id: 'did:key:z6MkmXjRf7pMCH8ct1ekbdqFMEcak1zDJTR31gXDokDhA69h',
+        // this seed will generate an unmatching application ID
+        seedMultibase: 'z1AdmTr7Z4fr6nBMH634Uti7tgQmHaCvMmKwJ9bo9yBhz1q'
+      };
       let err;
       let res;
       try {
-        res = await bedrock.events.emit('bedrock.init');
+        res = await _generateApplicationIdentity(
+          {name: 'test', seedDescription});
       } catch(e) {
         err = e;
       }
@@ -125,27 +95,24 @@ describe('bedrock-app-identity API', () => {
       err.message.should.equal(
         'The generated application ID does not match the ID found in the ' +
         'identity\'s description.');
+      err.details.identityName.should.equal('test');
+      err.details.expectedId.should.equal(
+        'did:key:z6MkmXjRf7pMCH8ct1ekbdqFMEcak1zDJTR31gXDokDhA69h');
+      err.details.actualId.should.equal(
+        'did:key:z6Mki1LV6wD9z7BhsmJsVBPuQnxLB4pZRsfrSinD4qmG8UNL');
     });
-  it('throws error if the generated service id does not match the id found',
+  it('throws error if the generated service ID does not match the ID found',
     async () => {
-      bedrock.config['app-identity'].seeds = {
-        app: {
-          id: 'did:key:z6MkgiUPg8Afs3CJzkZpAidCA46FFC5DEGGSzK2UZ7gwxr6C',
-          seedMultibase: 'z1AXnp3vMtxrFPV5aqdVA8R5KuSpUyfvhDRWpTMWm91by2p'
-        },
-        services: {
-          test2: {
-            id: 'did:key:z6MkqazfWvQjrKJxu7caQsrz7gbg1sPzY6B2GtyPkrhdXekf',
-            seedMultibase: 'z1AhhfKGoQWcmFT5T4CqK78tUBFZqtGYThdxd5EZESgwCqD',
-            serviceType: 'test2'
-          }
-        }
+      const seedDescription = {
+        id: 'did:key:z6MkqazfWvQjrKJxu7caQsrz7gbg1sPzY6B2GtyPkrhdXekf',
+        // this seed will generate an unmatching service ID
+        seedMultibase: 'z1AhhfKGoQWcmFT5T4CqK78tUBFZqtGYThdxd5EZESgwCqD'
       };
       _resetApplicationIdentity();
       let err;
       let res;
       try {
-        res = await bedrock.events.emit('bedrock.init');
+        res = await _generateServiceIdentity({name: 'test2', seedDescription});
       } catch(e) {
         err = e;
       }
@@ -155,26 +122,23 @@ describe('bedrock-app-identity API', () => {
       err.message.should.equal(
         'The generated service id does not match the id found in the ' +
         'service identity\'s description.');
+      err.details.seedName.should.equal('test2');
+      err.details.seedDescriptionId.should.equal(
+        'did:key:z6MkqazfWvQjrKJxu7caQsrz7gbg1sPzY6B2GtyPkrhdXekf');
+      err.details.generatedKeyId.should.equal(
+        'did:key:z6Mks7oWc1GaYXiXgCf9GXeUYVFiYC5JFQmnnnk5N7Vvfmhf');
     });
   it('throws error if "serviceType" is missing for service identity',
     async () => {
-      bedrock.config['app-identity'].seeds = {
-        app: {
-          id: 'did:key:z6MkgiUPg8Afs3CJzkZpAidCA46FFC5DEGGSzK2UZ7gwxr6C',
-          seedMultibase: 'z1AXnp3vMtxrFPV5aqdVA8R5KuSpUyfvhDRWpTMWm91by2p'
-        },
-        services: {
-          test2: {
-            id: 'did:key:z6MknnVVvr8HRx2FZcm3r8dEFmJPV3NgKLYBf9omS5zxbDrZ',
-            seedMultibase: 'z1AjQcbsw5XA7emiBaLUuMusTowm3M7tjA3Yt1ZoqEg9Dwj',
-          }
-        }
+      const seedDescription = {
+        id: 'did:key:z6MknnVVvr8HRx2FZcm3r8dEFmJPV3NgKLYBf9omS5zxbDrZ',
+        seedMultibase: 'z1AjQcbsw5XA7emiBaLUuMusTowm3M7tjA3Yt1ZoqEg9Dwj'
       };
       _resetApplicationIdentity();
       let err;
       let res;
       try {
-        res = await bedrock.events.emit('bedrock.init');
+        res = await _generateServiceIdentity({name: 'test2', seedDescription});
       } catch(e) {
         err = e;
       }
