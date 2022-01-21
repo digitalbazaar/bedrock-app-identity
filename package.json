@@ -1,6 +1,6 @@
 {
   "name": "bedrock-app-identity",
-  "version": "1.2.0",
+  "version": "1.2.1-0",
   "description": "Bedrock HTTP API",
   "main": "./lib",
   "scripts": {
