@@ -1,6 +1,6 @@
 # bedrock-app-identity ChangeLog
 
-## 1.2.0 - 2021-TBD
+## 1.2.0 - 2021-01-21
 
 - Add additional tests.
 
