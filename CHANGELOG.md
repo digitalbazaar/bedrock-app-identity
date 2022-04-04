@@ -1,6 +1,6 @@
 # bedrock-app-identity ChangeLog
 
-## 2.0.0 - 2022-04-xx
+## 2.0.0 - 2022-04-04
 
 ### Changed
 - **BREAKING**: Rename package to `@bedrock/app-identity`.
