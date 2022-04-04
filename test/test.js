@@ -1,10 +1,8 @@
-/*
- * Copyright (c) 2020-2021 Digital Bazaar, Inc. All rights reserved.
+/*!
+ * Copyright (c) 2020-2022 Digital Bazaar, Inc. All rights reserved.
  */
-'use strict';
+import * as bedrock from '@bedrock/core';
+import '@bedrock/app-identity';
+import '@bedrock/test';
 
-const bedrock = require('bedrock');
-require('bedrock-app-identity');
-
-require('bedrock-test');
 bedrock.start();

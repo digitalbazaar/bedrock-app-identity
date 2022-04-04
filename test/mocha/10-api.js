@@ -1,13 +1,14 @@
-/*
- * Copyright (c) 2020-2021 Digital Bazaar, Inc. All rights reserved.
+/*!
+ * Copyright (c) 2020-2022 Digital Bazaar, Inc. All rights reserved.
  */
-const {getAppIdentity, getServiceIdentities} = require('bedrock-app-identity');
-const bedrock = require('bedrock');
-const {
+import * as bedrock from '@bedrock/core';
+import {
+  getAppIdentity,
+  getServiceIdentities,
   _resetApplicationIdentity,
   _generateApplicationIdentity,
   _generateServiceIdentity
-} = require('bedrock-app-identity');
+} from '@bedrock/app-identity';
 
 describe('bedrock-app-identity API', () => {
   it('getAppIdentity() has the proper exports', async () => {
