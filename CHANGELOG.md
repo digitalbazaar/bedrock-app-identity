@@ -1,5 +1,11 @@
 # bedrock-app-identity ChangeLog
 
+## 3.0.0 - 2022-04-xx
+
+### Changed
+- **BREAKING**: Update peer deps:
+  - `@bedrock/core@6`.
+
 ## 2.0.0 - 2022-04-04
 
 ### Changed
