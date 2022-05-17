@@ -1,5 +1,10 @@
 # bedrock-app-identity ChangeLog
 
+## 4.0.0 - 2022-xx-xx
+
+### Changed
+- Update dependencies.
+
 ## 3.0.1 - 2022-05-21
 
 ### Fixed
