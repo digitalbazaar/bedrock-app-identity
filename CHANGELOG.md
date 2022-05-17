@@ -5,6 +5,7 @@
 ### Changed
 - Update dependencies.
 - Lint module.
+- Add `package.json` `files` field.
 
 ## 3.0.1 - 2022-05-21
 

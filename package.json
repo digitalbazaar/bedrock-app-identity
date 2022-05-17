@@ -4,6 +4,10 @@
   "type": "module",
   "description": "Bedrock HTTP API",
   "main": "./lib/index.js",
+  "files": [
+    "lib/**/*.js",
+    "util/**/*.js"
+  ],
   "scripts": {
     "lint": "eslint .",
     "generate-seed": "node ./util/generate-seed"
