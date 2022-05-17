@@ -3,6 +3,7 @@
   "version": "3.0.2-0",
   "type": "module",
   "description": "Bedrock HTTP API",
+  "type": "module",
   "main": "./lib/index.js",
   "files": [
     "lib/**/*.js",
@@ -10,7 +11,7 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "generate-seed": "node ./util/generate-seed"
+    "generate-seed": "node ./util/generate-seed.js"
   },
   "repository": {
     "type": "git",
