@@ -1,4 +1,4 @@
-# bedrock-app-identity ChangeLog
+# @bedrock/app-identity ChangeLog
 
 ## 4.0.0 - 2022-xx-xx
 

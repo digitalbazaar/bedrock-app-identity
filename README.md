@@ -1,4 +1,4 @@
-# bedrock-app-identity
+# @bedrock/app-identity
 
 ### Generate an app seed
 ```
