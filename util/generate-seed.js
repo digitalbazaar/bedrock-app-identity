@@ -2,9 +2,9 @@
  * Copyright (c) 2020-2022 Digital Bazaar, Inc. All rights reserved.
  */
 import {createRequire} from 'module';
+import {generateSecretKeySeed, decodeSecretKeySeed} from 'bnid';
 const require = createRequire(import.meta.url);
 const {driver} = require('@digitalbazaar/did-method-key');
-const {generateSecretKeySeed, decodeSecretKeySeed} = require('bnid');
 
 const didKeyDriver = driver();
 

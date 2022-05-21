@@ -1,5 +1,10 @@
 # bedrock-app-identity ChangeLog
 
+## 3.0.1 - 2022-05-xx
+
+### Fixed
+- Use `bnid@3` to reduce dependencies.
+
 ## 3.0.0 - 2022-04-28
 
 ### Changed
