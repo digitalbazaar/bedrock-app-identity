@@ -1,6 +1,6 @@
 # @bedrock/app-identity ChangeLog
 
-## 4.0.0 - 2022-xx-xx
+## 3.1.0 - 2022-xx-xx
 
 ### Changed
 - Update dependencies.
