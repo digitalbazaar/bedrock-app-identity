@@ -1,9 +1,8 @@
 {
   "name": "@bedrock/app-identity",
-  "version": "3.0.2-0",
+  "version": "4.0.0",
   "type": "module",
   "description": "Bedrock HTTP API",
-  "type": "module",
   "main": "./lib/index.js",
   "files": [
     "lib/**/*.js",
