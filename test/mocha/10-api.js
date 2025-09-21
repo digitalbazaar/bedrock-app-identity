@@ -1,13 +1,13 @@
 /*!
- * Copyright (c) 2020-2022 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2020-2025 Digital Bazaar, Inc. All rights reserved.
  */
 import * as bedrock from '@bedrock/core';
 import {
-  getAppIdentity,
-  getServiceIdentities,
-  _resetApplicationIdentity,
   _generateApplicationIdentity,
-  _generateServiceIdentity
+  _generateServiceIdentity,
+  _resetApplicationIdentity,
+  getAppIdentity,
+  getServiceIdentities
 } from '@bedrock/app-identity';
 
 describe('bedrock-app-identity API', () => {

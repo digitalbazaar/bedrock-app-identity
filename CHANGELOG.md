@@ -8,6 +8,12 @@
 - Lint module.
 - Add `package.json` `files` field.
 
+## 3.1.0 - 2025-09-dd
+
+### Changed
+- Update dependencies:
+  - `@digitalbazaar/did-method-key@5`.
+
 ## 3.0.1 - 2022-05-21
 
 ### Fixed
