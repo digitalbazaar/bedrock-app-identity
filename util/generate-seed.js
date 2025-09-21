@@ -4,7 +4,6 @@
 import * as Ed25519Multikey from '@digitalbazaar/ed25519-multikey';
 import {decodeSecretKeySeed, generateSecretKeySeed} from 'bnid';
 import {driver} from '@digitalbazaar/did-method-key';
-import {generateSecretKeySeed, decodeSecretKeySeed} from 'bnid';
 
 const didKeyDriver = driver();
 didKeyDriver.use({
