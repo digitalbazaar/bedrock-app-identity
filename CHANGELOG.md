@@ -1,5 +1,11 @@
 # @bedrock/app-identity ChangeLog
 
+## 4.1.0 - 2025-09-21
+
+### Changed
+- Update dependencies:
+  - `@digitalbazaar/did-method-key@5`.
+
 ## 4.0.0 - 2022-06-21
 
 ### Changed
@@ -7,12 +13,6 @@
 - Update dependencies.
 - Lint module.
 - Add `package.json` `files` field.
-
-## 3.1.0 - 2025-09-dd
-
-### Changed
-- Update dependencies:
-  - `@digitalbazaar/did-method-key@5`.
 
 ## 3.0.1 - 2022-05-21
 
