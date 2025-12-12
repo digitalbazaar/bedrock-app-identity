@@ -12,6 +12,7 @@
   "dependencies": {
     "@bedrock/core": "^6.0.1",
     "@bedrock/app-identity": "file:..",
+    "@bedrock/https-agent": "^4.1.0",
     "@bedrock/test": "^8.0.5",
     "c8": "^7.11.3",
     "cross-env": "^7.0.3"
