@@ -1,5 +1,11 @@
 # @bedrock/app-identity ChangeLog
 
+## 4.2.0 - 2025-mm-dd
+
+### Added
+- Export symbol for commonly used `zcapClient`; `zcapClient` will be set
+  on `bedrock.init` and use the app identity's zcap invocation key.
+
 ## 4.1.0 - 2025-09-21
 
 ### Changed
