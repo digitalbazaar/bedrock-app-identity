@@ -1,6 +1,6 @@
 # @bedrock/app-identity ChangeLog
 
-## 4.2.0 - 2025-mm-dd
+## 4.2.0 - 2026-02-06
 
 ### Added
 - Export symbol for commonly used `zcapClient`; `zcapClient` will be set
